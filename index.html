@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to StyleHub</title>
+    <style>
+        /* CSS Reset & Responsive Styles */
+        body { margin: 0; padding: 0; min-width: 100%; background-color: #f4f4f7; font-family: Arial, sans-serif; }
+        table { border-spacing: 0; font-family: Arial, sans-serif; color: #333333; }
+        td { padding: 0; }
+        @media screen and (max-width: 600px) {
+            .wrapper { width: 100% !important; max-width: 100% !important; }
+            .padding-mobile { padding: 20px 15px !important; }
+            .button { width: 80% !important; display: block !important; text-align: center !important; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f7;">
+
+    <!-- AMPscript Logic for Personalization (SFMC) -->
+    <!--
+      %%[
+        VAR @FirstName, @DiscountCode
+        SET @FirstName = AttributeValue("FirstName")
+        IF EMPTY(@FirstName) THEN SET @FirstName = "Valued Customer" ENDIF
+        SET @DiscountCode = "WELCOME10"
+      ]%%
+    -->
+
+    <center class="wrapper" style="width: 100%; background-color: #f4f4f7; padding-bottom: 40px;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f4f4f7;">
+            <tr>
+                <td align="center">
+                    
+                    <!-- Outlook Width Fix -->
+                    <!--[if mso]>
+                    <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                    <tr><td>
+                    <![endif]-->
+
+                    <!-- Main Email Box -->
+                    <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; background-color: #ffffff; margin-top: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                        
+                        <!-- Header / Logo -->
+                        <tr>
+                            <td align="center" style="padding: 25px; background-color: #111827; color: #ffffff;">
+                                <h1 style="margin: 0; font-size: 24px; letter-spacing: 2px;">STYLEHUB</h1>
+                            </td>
+                        </tr>
+
+                        <!-- Email Body -->
+                        <tr>
+                            <td class="padding-mobile" style="padding: 40px 30px; text-align: left;">
+                                <h2 style="margin: 0 0 15px 0; color: #111827;">Hi %%=v(@FirstName)=%%, Welcome! 🎉</h2>
+                                <p style="margin: 0 0 20px 0; font-size: 15px; line-height: 1.6; color: #4b5563;">
+                                    Thank you for joining StyleHub. Here is your exclusive 10% off coupon code for your first purchase.
+                                </p>
+                                
+                                <!-- Promo Code Box -->
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 25px;">
+                                    <tr>
+                                        <td align="center" style="padding: 15px; background-color: #f3f4f6; border: 2px dashed #d1d5db; border-radius: 6px;">
+                                            <span style="font-size: 14px; color: #6b7280; display: block; margin-bottom: 5px;">Your Promo Code:</span>
+                                            <strong style="font-size: 22px; color: #4f46e5; letter-spacing: 2px;">%%=v(@DiscountCode)=%%</strong>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- CTA Button (Outlook Bulletproof VML Button) -->
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                        <td align="center">
+                                            <!--[if mso]>
+                                            <v:roundrect xmlns:v="urn:schemas-microsoft-microsoft-com:vml" href="https://example.com" style="height:45px;v-text-anchor:middle;width:200px;" arcsize="10%" fillcolor="#4f46e5" stroke="f">
+                                            <center style="color:#ffffff;font-family:sans-serif;font-size:16px;font-weight:bold;">Shop Now</center>
+                                            </v:roundrect>
+                                            <![endif]-->
+                                            <!--[if !mso]><!-->
+                                            <a href="https://example.com" class="button" style="background-color: #4f46e5; color: #ffffff; display: inline-block; padding: 14px 30px; font-size: 16px; font-weight: bold; text-decoration: none; border-radius: 6px;">Shop Now</a>
+                                            <!--<![endif]-->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- Footer -->
+                        <tr>
+                            <td style="padding: 20px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">
+                                <p style="margin: 0 0 8px 0; font-size: 12px; color: #9ca3af;">You received this email because you signed up at StyleHub.com</p>
+                                <a href="%%=unsub_center_url=%%" style="color: #6b7280; font-size: 12px; text-decoration: underline;">Unsubscribe</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!--[if mso]>
+                    </td></tr></table>
+                    <![endif]-->
+
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
